@@ -12,6 +12,21 @@ hl.config({
     },
 })
 
+hl.layout.register("grid", {
+    recalculate = function(ctx)
+        local n = #ctx.targets
+        if n == 0 then
+            return
+        end
+
+        local cols = math.ceil(math.sqrt(n))
+
+        for i, target in ipairs(ctx.targets) do
+            target:place(ctx:grid_cell(i, cols))
+        end
+    end,
+})
+
 hl.config({
     general = {
         border_size = 3,
@@ -63,6 +78,10 @@ hl.config({
             render_power = 10,
             color = "rgba(000000ff)",
             range = 20,
+        },
+
+        motion_blur = {
+            enabled = true,
         },
 
         blur = {

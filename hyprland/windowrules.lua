@@ -77,3 +77,11 @@ hl.window_rule({
   size = "1700 900",
 })
 
+hl.window_rule({
+  name = "select_rom",
+  match = { title = "^(Select ROM)$" },
+  float = true,
+  center = true,
+  size = "900 600",
+})
+

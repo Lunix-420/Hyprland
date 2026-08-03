@@ -61,7 +61,6 @@ local screenshot_keys = {
 for _, binding in ipairs(screenshot_keys) do
     hl.bind("SUPER + " .. binding.key, function() 
         hl.dispatch(hl.dsp.exec_cmd("hyprshot -m " .. binding.mode .. " --freeze --clipboard-only"))
-        hl.dispatch(hl.dsp.exec_cmd("killall hyprpicker"))
         hl.dispatch(hl.dsp.exec_cmd("notify-send 'Screenshot taken' --app-name='Hyprshot' --expire-time=2000"))
     end)
 end
